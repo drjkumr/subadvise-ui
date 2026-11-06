@@ -1,0 +1,10 @@
+services:
+  subadvise-ui:
+    build:
+      context: .
+      args:
+        VITE_SUBADVISE_API_URL: ${VITE_SUBADVISE_API_URL:-http://localhost:7071}
+        VITE_SUBADVISE_AI_API_URL: ${VITE_SUBADVISE_AI_API_URL:-http://localhost:7072}
+    ports:
+      - "${UI_PORT:-7073}:80"
+    restart: unless-stopped

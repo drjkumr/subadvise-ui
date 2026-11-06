@@ -68,6 +68,25 @@ The production output is generated in the `dist/` directory.
 npm run preview
 ```
 
+### Docker Deployment
+
+Build and run the production UI container:
+
+```bash
+docker compose up --build -d
+```
+
+The UI is available at `http://localhost:7073`. To use different API hosts or a different UI port, set the values when building:
+
+```bash
+VITE_SUBADVISE_API_URL=https://api.example.com \
+VITE_SUBADVISE_AI_API_URL=https://ai.example.com \
+UI_PORT=7073 \
+docker compose up --build -d
+```
+
+The `VITE_*` API URLs are embedded in the frontend during the image build and must be reachable from the user's browser; Docker-only service names are not suitable. Configure both backend services to allow the deployed UI origin through CORS. To stop the UI, run `docker compose down`.
+
 ---
 
 ## Features & Implementation Highlights
