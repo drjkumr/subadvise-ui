@@ -1,7 +1,0 @@
-__pycache__/
-*.py[cod]
-.env
-data/chat_history/
-data/chroma_db/
-data/demo_chat_history/
-data/demo_chroma_db/
